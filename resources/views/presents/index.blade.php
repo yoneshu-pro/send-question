@@ -20,7 +20,12 @@
             <div class="card-body">
 @foreach($presents as $present)
                 <div class="card mb-3">
-                    <a href="{{ route('presents.show', ['id' => $present->id]) }}"><div class="card-body">{{ $present->title }}</div></a>
+                    <a href="{{ route('presents.show', ['id' => $present->id]) }}">
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">{{ $present->title }}</h5>
+                            <p class="card-text">{{ $present->description }}</p>
+                        </div>
+                    </a>
                 </div>
 @endforeach
             </div>

@@ -18,6 +18,13 @@
                         <input type="text" id="title" name="title" class="form-control">
                     </div>
                     <div class="form-group">
+                        <label for="description">プレゼン説明</label>
+                        @if($errors->has('description'))
+                            <div class="alert alert-danger" role="alert">{{ $errors->first('description') }}</div>
+                        @endif
+                        <textarea id="description" name="description" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputFile" class="d-block">プレゼン資料(PDF)</label>
                         @if($errors->has('pdf'))
                             <div class="alert alert-danger" role="alert">{{ $errors->first('pdf') }}</div>
