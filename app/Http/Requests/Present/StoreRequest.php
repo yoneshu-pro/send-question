@@ -25,7 +25,8 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:254',
-            'pdf' => 'required|file|mimes:pdf'
+            'pdf' => 'required|file|mimes:pdf',
+            'description' => 'required|string|max:254',
         ];
     }
 }
