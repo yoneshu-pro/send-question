@@ -1,7 +1,7 @@
 @extends('layout.base')
 
 @section('body')
-    <div class="container">
+    <div class="container mb-3">
         <h1>{{ $present->title }}</h1>
         <div id="slide" class="carousel slide mb-3" data-ride="carousel" data-keyboard="true" data-interval="0" data-wrap="false">
             <ol class="carousel-indicators">
