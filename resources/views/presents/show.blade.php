@@ -3,7 +3,7 @@
 @section('body')
     <div class="container">
         <h1>{{ $present->title }}</h1>
-        <div id="slide" class="carousel slide" data-ride="carousel" data-keyboard="true" data-interval="0" data-wrap="false">
+        <div id="slide" class="carousel slide mb-3" data-ride="carousel" data-keyboard="true" data-interval="0" data-wrap="false">
             <ol class="carousel-indicators">
 @for($i = 0; $i < $present->max_slide_page; $i++)
                 <li data-target="#slide" data-slide-to="{{$i}}" @if($i === 0)class="active"@endif></li>
