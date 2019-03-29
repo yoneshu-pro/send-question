@@ -8,6 +8,7 @@ class Present extends Model
 {
     protected $fillable = [
         'title',
+        'max_slide_page',
     ];
 
     public function questions()

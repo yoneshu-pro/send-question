@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Present\StoreRequest;
 use App\Models\Present;
 use Illuminate\Http\Request;
-use phpDocumentor\Reflection\Types\Parent_;
+use Spatie\PdfToImage\Pdf;
+use File;
+use DB;
 
 class PresentController extends Controller
 {
@@ -34,15 +36,28 @@ class PresentController extends Controller
         return view('presents.create');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Throwable
      */
     public function store(StoreRequest $request)
     {
-        Present::create($request->all());
+        DB::transaction(function () use ($request) {
+            $pdf = new Pdf($request->pdf->getRealPath());
+
+            $insertParameter = $request->all();
+            $insertParameter['max_slide_page'] = $pdf->getNumberOfPages();
+            $present = Present::create($insertParameter);
+
+            File::makeDirectory(public_path('pdf/' . $present->id));
+            for ($i = 1; $i <= $pdf->getNumberOfPages(); $i++) {
+                $pdf->setPage($i)->setOutputFormat('jpg')->saveImage(public_path('pdf/' . $present->id . '/'));
+            }
+        });
         return redirect(route('presents.index'));
     }
 

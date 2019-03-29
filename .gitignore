@@ -3,6 +3,8 @@
 /public/storage
 /public/css
 /public/js
+/public/pdf
+!/public/pdf/.gitkeep
 /storage/*.key
 /vendor
 .env
