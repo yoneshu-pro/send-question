@@ -14,7 +14,7 @@ class AddDescriptionColumnToPresentsTable extends Migration
     public function up()
     {
         Schema::table('presents', function (Blueprint $table) {
-            $table->text('description');
+            $table->string('description');
         });
     }
 

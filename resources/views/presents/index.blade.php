@@ -1,7 +1,6 @@
 @extends('layout.base')
 
 @section('body')
-    <div class="container">
         <div class="card">
             <div class="card-header">プレゼン検索</div>
             <div class="card-body">
@@ -14,22 +13,18 @@
                 </form>
             </div>
         </div>
-@if(count($presents) !== 0)
-        <div class="card mt-3">
-            <div class="card-header">プレゼン一覧</div>
-            <div class="card-body">
+        <div class="row mt-sm-2">
 @foreach($presents as $present)
-                <div class="card mb-3">
-                    <a href="{{ route('presents.show', ['id' => $present->id]) }}">
-                        <div class="card-body text-dark">
-                            <h5 class="card-title">{{ $present->title }}</h5>
-                            <p class="card-text">{{ $present->description }}</p>
-                        </div>
-                    </a>
+            <div class="col-sm-3">
+                <div class="card">
+                    <img class="card-img" src="/pdf/{{ $present->id }}/1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $present->title }}</h5>
+                        <p class="card-text">{{ $present->description }}</p>
+                        <a href="{{ route('presents.show', ['id' => $present->id]) }}" class="btn btn-primary">プレゼンを見る</a>
+                    </div>
                 </div>
-@endforeach
             </div>
+@endforeach
         </div>
-@endif
-    </div>
 @endsection

@@ -1,7 +1,6 @@
 @extends('layout.base')
 
 @section('body')
-    <div class="container mb-3">
         <h1>{{ $present->title }}</h1>
         <div id="slide" class="carousel slide mb-3" data-ride="carousel" data-keyboard="true" data-interval="0" data-wrap="false">
             <ol class="carousel-indicators">
@@ -17,16 +16,15 @@
                 </div>
 @endfor
             </div>
-            <a class="carousel-control-prev" href="#slide" role="button" data-slide="prev">
-            </a>
-            <a class="carousel-control-next" href="#slide" role="button" data-slide="next">
-            </a>
+            <a class="carousel-control-prev" href="#slide" role="button" data-slide="prev"></a>
+            <a class="carousel-control-next" href="#slide" role="button" data-slide="next"></a>
         </div>
         <div class="card mb-3">
             <div class="card-header">質問登録</div>
             <div class="card-body">
                 <form method="post" action={{ route('questions.store') }} class="form-horizontal">
                     @csrf
+
                     <input type="hidden" name="present_id" value="{{ $id }}">
                     <div class="form-group">
                         <label for="question">質問内容</label>
@@ -48,5 +46,4 @@
             </div>
         </div>
 @endif
-    </div>
 @endsection
