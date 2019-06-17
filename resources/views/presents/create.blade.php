@@ -31,7 +31,7 @@
 @endif
                         <input type="file" id="exampleInputFile" class="d-block" name="pdf">
                     </div>
-                    <button type="submit">登録する</button>
+                    <button type="submit" class="btn btn-dark">登録する</button>
                 </form>
             </div>
         </div>
