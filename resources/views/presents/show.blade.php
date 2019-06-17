@@ -1,7 +1,7 @@
 @extends('layout.base')
 
 @section('body')
-        <h1>{{ $present->title }}</h1>
+        <h2 class="">{{ $present->title }}</h2>
         <div id="slide" class="carousel slide mb-3" data-ride="carousel" data-keyboard="true" data-interval="0" data-wrap="false">
             <ol class="carousel-indicators">
 @for($i = 0; $i < $present->max_slide_page; $i++)
@@ -30,7 +30,7 @@
                         <label for="question">質問内容</label>
                         <textarea id="question" name="question" class="form-control rounded-0" rows="5"></textarea>
                     </div>
-                    <button type="submit">登録する</button>
+                    <button type="submit" class="btn btn-dark">登録する</button>
                 </form>
             </div>
         </div>
