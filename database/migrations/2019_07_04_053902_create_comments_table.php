@@ -16,7 +16,7 @@ class CreateCommentsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->text('comment', 65535);
-			$table->integer('present_id')->unsigned()->index();
+			$table->integer('presentation_id')->unsigned()->index();
 			$table->integer('user_id')->unsigned()->index();
 		});
 	}

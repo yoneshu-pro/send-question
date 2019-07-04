@@ -14,7 +14,7 @@ class CreateSlidesTable extends Migration {
 	{
 		Schema::create('slides', function(Blueprint $table)
 		{
-			$table->integer('present_id')->unsigned()->index();
+			$table->integer('presentation_id')->unsigned()->index();
 			$table->string('url');
 			$table->integer('display_order');
             $table->timestamps();
