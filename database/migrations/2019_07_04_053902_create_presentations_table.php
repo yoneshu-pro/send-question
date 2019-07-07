@@ -16,7 +16,8 @@ class CreatePresentationsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id')->unsigned()->index();
-			$table->integer('project_id')->unsigned()->nullable()->index();
+			$table->integer('project_id')->unsigned()->index();
+			$table->integer('is_private')->default(0);
 			$table->string('title');
             $table->timestamps();
             $table->softDeletes();
