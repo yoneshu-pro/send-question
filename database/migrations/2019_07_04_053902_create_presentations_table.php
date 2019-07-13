@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreatePresentsTable extends Migration {
+class CreatePresentationsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,12 @@ class CreatePresentsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('presents', function(Blueprint $table)
+		Schema::create('presentations', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('user_id')->unsigned()->index();
-			$table->integer('project_id')->unsigned()->nullable()->index();
+			$table->integer('project_id')->unsigned()->index();
+			$table->integer('is_private')->default(0);
 			$table->string('title');
             $table->timestamps();
             $table->softDeletes();
@@ -31,7 +32,7 @@ class CreatePresentsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('presents');
+		Schema::drop('presentations');
 	}
 
 }

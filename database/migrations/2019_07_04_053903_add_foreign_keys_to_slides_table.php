@@ -14,7 +14,7 @@ class AddForeignKeysToSlidesTable extends Migration {
 	{
 		Schema::table('slides', function(Blueprint $table)
 		{
-			$table->foreign('present_id')->references('id')->on('presents')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('presentation_id')->references('id')->on('presentations')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
 	}
 
@@ -28,7 +28,7 @@ class AddForeignKeysToSlidesTable extends Migration {
 	{
 		Schema::table('slides', function(Blueprint $table)
 		{
-			$table->dropForeign('slides_present_id_foreign');
+			$table->dropForeign('slides_presentation_id_foreign');
 		});
 	}
 

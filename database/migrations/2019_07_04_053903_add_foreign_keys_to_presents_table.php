@@ -12,7 +12,7 @@ class AddForeignKeysToPresentsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('presents', function(Blueprint $table)
+		Schema::table('presentations', function(Blueprint $table)
 		{
 			$table->foreign('project_id')->references('id')->on('projects')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 			$table->foreign('user_id')->references('id')->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
@@ -27,10 +27,10 @@ class AddForeignKeysToPresentsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('presents', function(Blueprint $table)
+		Schema::table('presentations', function(Blueprint $table)
 		{
-			$table->dropForeign('presents_project_id_foreign');
-			$table->dropForeign('presents_user_id_foreign');
+			$table->dropForeign('presentations_project_id_foreign');
+			$table->dropForeign('presentations_user_id_foreign');
 		});
 	}
 
